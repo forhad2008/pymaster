@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PyMaster Academy - Python Master Book (0 to Hero)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript">
+      // 1. Language Initialization Guard
+      // Default to English ('en') on first load if no language is saved in localStorage
+      (function() {
+        try {
+          var savedLang = localStorage.getItem('pymaster_user_language');
+          if (!savedLang || savedLang === 'en') {
+            // Guarantee English default
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
+          } else {
+            // Apply saved user language cookie before DOM mounts
+            var date = new Date();
+            date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+            var expires = "; expires=" + date.toUTCString();
+            document.cookie = "googtrans=/en/" + savedLang + "; path=/" + expires;
+            document.cookie = "googtrans=/en/" + savedLang + "; path=/; domain=" + window.location.hostname + expires;
+          }
+        } catch(e) {
+          console.warn("Language init exception:", e);
+        }
+      })();
+
+      // 2. Google Translate Element Callback
+      function googleTranslateElementInit() {
+        try {
+          new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            includedLanguages: 'en,bn,hi,es,fr,de,ar,zh-CN,ja,ru,pt,id,tr,ko,it,vi,ur,th,pl,nl',
+            autoDisplay: false
+          }, 'google_translate_element');
+        } catch(e) {
+          console.warn("Google Translate init error:", e);
+        }
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+  </head>
+  <body>
+    <!-- Hidden singleton translate element required by Google Translate script -->
+    <div id="google_translate_element" style="position: fixed; top: -9999px; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; overflow: hidden;"></div>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

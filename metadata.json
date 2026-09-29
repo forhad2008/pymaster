@@ -1,0 +1,6 @@
+{
+  "name": "PyMaster Academy",
+  "description": "Learn Python from absolute zero to professional level. Build real things with interactive code sandboxes, 40 real-world projects, live WebGL 3D parameter visualizers, and real-time Gemini AI explanations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

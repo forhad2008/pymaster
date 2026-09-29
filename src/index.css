@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark-0: #05070d;
+  --bg-dark-1: #080b12;
+  --bg-dark-2: #0d111a;
+  --py-blue: #3776ab;
+  --py-yellow: #ffd43b;
+  --accent-purple: #6c63ff;
+  --accent-cyan: #00d4ff;
+  --accent-green: #22c55e;
+}
+
+body {
+  background-color: var(--bg-dark-0) !important;
+  color: #f8fafc;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism styling helpers */
+.glass-panel {
+  background: rgba(13, 17, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(13, 17, 26, 0.95);
+  border-color: rgba(55, 118, 171, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
+}
+
+/* Custom Webkit scrollbar for premium Dark look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.15;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s infinite ease-in-out;
+}
+
+/* ==============================================================================
+   GOOGLE TRANSLATE SEAMLESS INTEGRATION & SUPPRESSION RULES
+   ============================================================================== */
+body {
+  top: 0px !important;
+  position: static !important;
+}
+
+.goog-te-banner-frame {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.skiptranslate:not(.skiptranslate-allow) {
+  display: none !important;
+}
+
+#goog-gt-tt, .goog-te-balloon-frame {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Do not translate raw code blocks */
+pre, code, .notranslate, textarea {
+  translate: no !important;
+}
+
